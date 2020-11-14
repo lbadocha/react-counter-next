@@ -1,0 +1,9 @@
+.clock span {
+    color: red;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.clock span:hover {
+    text-decoration: underline;
+}

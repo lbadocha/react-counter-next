@@ -14,11 +14,11 @@ function App() {
         </header>
         <Counter initValue={0} />
 
-        <Heading headingText="React counter" />
+        {/* <Heading headingText="React counter" />
         <Counter initValue={108}/>
 
         <Heading headingText="Licznik w react ponownie" />
-        <Counter initValue={33} />
+        <Counter initValue={33} /> */}
       </div>
   );
 }

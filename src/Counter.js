@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ButtonsPanel from './ButtonsPanel';
+import Clock from './Clock';
 import Display from './Display';
 
 
@@ -10,7 +11,8 @@ class Counter extends Component {
         super(props);
 
         this.state = {
-            counterValue: this.props.initValue
+            counterValue: this.props.initValue,
+            displayClock: true
         }
     }
 
@@ -33,14 +35,27 @@ class Counter extends Component {
         }
 
     }
+
+    changeDisplayClock = (displayBoolean) => {
+        this.setState({displayClock: displayBoolean})
+    }    
     
 
     render() {
-    
+
+        let clockElement =  null;
+
+        if(this.state.displayClock) {
+            clockElement = <Clock methodDisplayClock={this.changeDisplayClock} />;
+        } else {
+            clockElement = <h5 className="show-clock" onClick={()=>this.changeDisplayClock(true)}>Pokaż zegar</h5>;
+        }
+
         return (
             <div className="counter">
                 <Display count={this.state.counterValue} />
                 <ButtonsPanel changeValueMethod={this.changeValue} />
+                {clockElement}
             </div>
         );
     }
